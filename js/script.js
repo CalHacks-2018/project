@@ -1,22 +1,23 @@
 let data;
-
 function load(){
     // getStories();
-    navigator.geolocation.getCurrentPosition(function(position) {
-        console.log(position.coords.latitude, position.coords.longitude);
-       getLocation(position.coords.latitude, position.coords.longitude);
-    });
+    // navigator.geolocation.getCurrentPosition(function(position) {
+    //     console.log(position.coords.latitude, position.coords.longitude);
+    //    getLocation(position.coords.latitude, position.coords.longitude);
+    // });
+    getLocation(37.8716,-122.2584);
     console.log('eg');
 
 }
 function getStories(){
+    // URL to get news stories. To see what kind of data you get back, you can go on this link:
+    // https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=c60f3579d91d4b87b07f1cc22eca59d9
     const url = `https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=${NEWS_API_KEY}`;
     fetch(url)
     .then(function(response){
         return response.json();
     })
     .then(function(response){
-        data = response;
         generateNewsCards(response);
     });
 }
@@ -29,8 +30,10 @@ function getLocation(lat, long){
         return response.json();
     })
     .then(function(response){
-        // console.log(response);
-        getLocationNews(response['results'][0]['address_components'][1]['long_name']+ ",_" + response['results'][0]['address_components'][3]['long_name']);
+        console.log(response);
+        const loc = response['results'][0]['address_components'][1]['long_name']+ ",_" + response['results'][0]['address_components'][3]['long_name'];
+        console.log(loc)
+        getLocationNews(loc);
     });
     console.log('eg');
 
