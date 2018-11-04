@@ -13,8 +13,8 @@ function setupPage(country){
     document.getElementById('root').insertAdjacentHTML('beforebegin', template);
 }
 function getLocation(country){
-    // const url = `https://calhacks18.appspot.com/?id=country&country=${country}`;   
-    const url = `http://localhost:8080/?id=country&country=${country.replace(/ /g,"_")}`;    
+    const url = `https://calhacks18.appspot.com/?id=country&country=${country.replace(/ /g,"_")}`;   
+    // const url = `http://localhost:8080/?id=country&country=${country.replace(/ /g,"_")}`;    
     fetch(url)
     .then(function(response){
         return response.json();
