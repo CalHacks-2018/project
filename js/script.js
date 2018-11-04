@@ -17,13 +17,13 @@ function getLocation(lat, long){
     })
     .then(function(response){
         console.log(response);
-        generateNewsCards(JSON.parse(response));
+        generateNewsCards(response);
     }).catch(function(error){
         console.log(error);
     });
 }
 function generateNewsCards(data){
-    data.forEach(e => {
+    data['events']['results'].forEach(e => {
         generateCard(e);
     });
 }
