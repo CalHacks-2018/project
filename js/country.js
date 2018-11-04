@@ -10,12 +10,53 @@ function load(){
 function setupPage(country){
     let template = `
         <h1>Showing results for news articles in ${country}</h1>
+        <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+
+          <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+
+         <div class="spinner-layer spinner-yellow">
+           <div class="circle-clipper left">
+             <div class="circle"></div>
+           </div><div class="gap-patch">
+             <div class="circle"></div>
+           </div><div class="circle-clipper right">
+             <div class="circle"></div>
+           </div>
+         </div>
+
+         <div class="spinner-layer spinner-green">
+           <div class="circle-clipper left">
+             <div class="circle"></div>
+           </div><div class="gap-patch">
+             <div class="circle"></div>
+           </div><div class="circle-clipper right">
+             <div class="circle"></div>
+           </div>
+         </div>
+       </div>
     `;
     document.getElementById('root').insertAdjacentHTML('beforebegin', template);
 }
 function getLocation(country){
-    const url = `https://calhacks18.appspot.com/?id=country&country=${country.replace(/ /g,"_")}`;   
-    // const url = `http://localhost:8080/?id=country&country=${country.replace(/ /g,"_")}`;    
+    const url = `https://calhacks18.appspot.com/?id=country&country=${country.replace(/ /g,"_")}`;
+    // const url = `http://localhost:8080/?id=country&country=${country.replace(/ /g,"_")}`;
     fetch(url)
     .then(function(response){
         return response.json();
@@ -26,6 +67,7 @@ function getLocation(country){
     });
 }
 function generateNewsCards(data){
+    document.getElementsByClassName('preloader-wrapper').item(0).style.display = 'none';
     data['events']['results'].forEach(e => {
         generateCard(e);
     });
