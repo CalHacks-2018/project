@@ -1,9 +1,13 @@
 body{
     background-color: #151515;
+    overflow: hidden;
+}
+img{
+    height: 20vh;
 }
 #name{
-    margin: 30vh auto;
-    font-size: 10vh;
+    margin: 15vh auto;
+    font-size: 35px;
     letter-spacing: 0.5vw;
     text-align: center;
     color: white;
@@ -12,4 +16,20 @@ body{
 #input{
     width: 200px;
     border-radius: 25px;
+}
+.btn-large{
+    margin-top: 10px;
+}
+@media screen and (min-width: 600px){
+    img{
+        height: 35vh;
+    }
+    #name{
+        margin: 15vh auto;
+        font-size: 10vh;
+        letter-spacing: 0.5vw;
+        text-align: center;
+        color: white;
+        font-family: 'Montserrat';
+    }
 }

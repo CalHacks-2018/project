@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="shortcut icon" href="./assets/newsgator.svg">
         <meta charset="utf-8" />
         <meta name="author" content="co-authored by Angela Liu, Maggie Dong, Ryan Yang, Winnie Jeng">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,23 +24,23 @@
     </head>
     <body onload="load();">
         <div id="name">
+            <img src="./assets/newsgator.svg">
+            <br>
             News Alligator
             <br>
-            <div class="btn-floating btn-large waves-effect waves-light purple darken-4" onclick="window.location = './map.html';">
-                <i class="material-icons" style="font-size: 40px;">
-                    language
-                </i>
-            </div>
-            <div class="btn-large white" id="input">
-                <input id="country" placeholder="Search">
-            </div>
             <div class="btn-floating btn-large waves-effect waves-light purple darken-4" onclick="redirectCountry();">
                 <i class="material-icons" style="font-size: 40px;">
                     search
                 </i>
             </div>
-
-            <div id="chart_div" style="width: 900px; height: 500px;"></div>
+            <div class="btn-large white" id="input">
+                <input id="country" placeholder="Search">
+            </div>
+            <div class="btn-floating btn-large waves-effect waves-light purple darken-4" onclick="window.location = './map.html';">
+                <i class="material-icons" style="font-size: 40px;">
+                    language
+                </i>
+            </div>
         </div>
     </body>
 </html>
