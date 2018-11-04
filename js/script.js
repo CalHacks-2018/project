@@ -1,14 +1,11 @@
 let data;
 function load(){
-    // getStories();
     // navigator.geolocation.getCurrentPosition(function(position) {
-    //     console.log(position.coords.latitude, position.coords.longitude);
     //    getLocation(position.coords.latitude, position.coords.longitude);
     // });
-    getLocation(37.8716,-122.2584);
-    console.log('eg');
-
+    getLocation(37.8734884, -122.256028);
 }
+/*
 function getStories(){
     // URL to get news stories. To see what kind of data you get back, you can go on this link:
     // https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=c60f3579d91d4b87b07f1cc22eca59d9
@@ -20,36 +17,25 @@ function getStories(){
     .then(function(response){
         generateNewsCards(response);
     });
-}
-
+*/
 function getLocation(lat, long){
+    const url = `https://calhacks18.appspot.com/?id=location&lat=${lat}&long=${long}`;
+    console.log(lat, long, url);
 
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=${GOOGLE_GEOLOCATION_API_KEY}`;
     fetch(url)
     .then(function(response){
+        console.log('egere');
         return response.json();
     })
     .then(function(response){
         console.log(response);
-        const loc = response['results'][0]['address_components'][1]['long_name']+ ",_" + response['results'][0]['address_components'][3]['long_name'];
-        console.log(loc)
-        getLocationNews(loc);
+        generateNewsCards(response);
+    }).catch(function(error){
+        console.log(error);
     });
-    console.log('eg');
-
-
 }
-function getLocationNews(area){
-    const url = "http://eventregistry.org/api/v1/event?query=" + encodeURI(`{"$query":{"locationUri":"http://en.wikipedia.org/wiki/${area}"}}&action=getEvents&resultType=events&eventsSortBy=date&eventsCount=50&eventImageCount=1&storyImageCount=1&apiKey=b51f8466-38d9-4b10-93e2-34ddfba8d0a7`);
-    fetch(url)
-    .then(function(response){
-        return response.json();
-    })
-    .then(function(reponse){
-        generateNewsCards(reponse['events']['results']);
-    });
-}function generateNewsCards(data){
-    data.forEach(e => {
+function generateNewsCards(data){
+    data['events']['results'].forEach(e => {
         generateCard(e);
     });
 }
