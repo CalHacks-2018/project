@@ -20,29 +20,16 @@ img{
 .btn-large{
     margin-top: 10px;
 }
-@media screen and (min-width: 600px){
-    img{
-        height: 35vh;
-    }
-    #name{
-        margin: 15vh auto;
-        font-size: 10vh;
-        letter-spacing: 0.5vw;
-        text-align: center;
-        color: white;
-        font-family: 'Montserrat';
-    }
-}
 
 .landing {
-    width: 80%;
+    width: 85%;
     color: #e8e8e8;
-    padding-top: 20vh;
+    padding-top: 15vh;
 }
 
 h1 {
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 6em;
+    font-size: 64px;
 }
 
 p {
@@ -56,4 +43,21 @@ p {
 
 input {
   color: #e8e8e8;
+}
+
+@media screen and (min-width: 600px){
+    img{
+        height: 35vh;
+    }
+    #name{
+        margin: 15vh auto;
+        font-size: 10vh;
+        letter-spacing: 0.5vw;
+        text-align: center;
+        color: white;
+        font-family: 'Montserrat';
+    }
+    h1 {
+       font-size: 100px;
+    }
 }

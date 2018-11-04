@@ -1,6 +1,3 @@
-//let data;
-const NEWS_API_KEY = 'c60f3579d91d4b87b07f1cc22eca59d9';
-
 function myload(){
     // Ryan's getStories function
     const url = `https://newsapi.org/v2/everything?q=rohingya&from=2018-10-04&to=2018-11-04&sortBy=popularity&pageSize=10&apiKey=${NEWS_API_KEY}`;
