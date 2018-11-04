@@ -1,9 +1,15 @@
 body{
     background-color: #151515;
 }
-#news-stories--holder{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 20px;
-    grid-template-rows: auto;
+#name{
+    margin: 30vh auto;
+    font-size: 10vh;
+    letter-spacing: 0.5vw;
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat';
+}
+#input{
+    width: 200px;
+    border-radius: 25px;
 }

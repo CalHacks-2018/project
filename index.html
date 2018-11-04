@@ -2,9 +2,13 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="author" content="co-authored by Angela Liu, Maggie Dong, Ryan Yang, Winnie Jeng">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>News Aggregator</title>
+        <title>News Alligator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href="./assets/libraries/materialize/materialize.min.css">
         <script src="./assets/libraries/materialize/materialize.min.js"></script>
@@ -13,9 +17,21 @@
         <script src="js/script.js"></script>
     </head>
     <body onload="load();">
-        <div id="root">
-            <div id="news-stories--holder" class="container">
-
+        <div id="name">
+            News Alligator
+            <br>
+            <div class="btn-floating btn-large waves-effect waves-light purple darken-4" onclick="window.location = './map.html';">
+                <i class="material-icons" style="font-size: 40px;">
+                    language
+                </i>
+            </div>
+            <div class="btn-large white" id="input">
+                <input id="country" placeholder="Search">
+            </div>
+            <div class="btn-floating btn-large waves-effect waves-light purple darken-4" onclick="redirectCountry();">
+                <i class="material-icons" style="font-size: 40px;">
+                    search
+                </i>
             </div>
         </div>
     </body>

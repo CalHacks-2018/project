@@ -1,0 +1,25 @@
+body{
+    background-color: #151515;
+}
+h1{
+    width: 100vw;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+#news-stories--holder{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 20px;
+    grid-template-rows: auto;
+}
+@media screen and (min-width: 800px){
+    #news-stories--holder{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (min-width: 1800px){
+    #news-stories--holder{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
