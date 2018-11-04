@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="shortcut icon" href="./assets/newsgator.svg">
         <meta charset="utf-8" />
+        <meta name="author" content="co-authored by Angela Liu, Maggie Dong, Ryan Yang, Winnie Jeng">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>News Aggregator</title>
+        <title>News Alligator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href="./assets/libraries/materialize/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,45 +18,27 @@
 
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <script src="js/script.js"></script>
-        <script src="js/wetrythings.js"></script>
-        <script src='https://www.gstatic.com/charts/loader.js'></script>
-        <script src='js/map.js'></script>
+        <!--<script src="js/api-keys.js"></script>-->
     </head>
-    
-    <body onload="myload();">
-        <section class="container landing">
-          <div class="row">
-              <!--Title -->
-              <div class="col l7 m12 s12">
-                  <div id="title"><h1>News Alligator</h1></div>
-                  <div class="flow-text"><p style="font-weight: 200;">See the news that matters WITH YOUR EYES.</p></div>
-              </div>
-              <!--Search -->
-              <div class="col l5 m12 s12">
-                  <div class="search">
-                    <div class="input">
-                      <div class="input-field ">
-                         <input id="country" type="text">
-                         <label for="country">Search by country</label>
-                      </div>
-                      <div class="input-field ">
-                         <input id="keyword" type="text">
-                         <label for="keyword">Search by keyword</label>
-                      </div>
-                      </div>
-                      <a class="waves-effect waves-light btn-large"><i class="material-icons right">map</i>See the world</a>
-                  </div>
-              </div>
-          </div>
-        </section>
-        <!--
-        <div id="root">
-            <div id="news-stories--holder" class="container">
-
+    <body onload="load();">
+        <div id="name">
+            <img src="./assets/newsgator.svg">
+            <br>
+            News Alligator
+            <br>
+            <div class="btn-floating btn-large waves-effect waves-light purple darken-4" onclick="redirectCountry();">
+                <i class="material-icons" style="font-size: 40px;">
+                    search
+                </i>
             </div>
-
-            <div id="chart_div" style="width: 900px; height: 500px;"></div>
+            <div class="btn-large white" id="input">
+                <input id="country" placeholder="Search">
+            </div>
+            <div class="btn-floating btn-large waves-effect waves-light purple darken-4" onclick="window.location = './map.html';">
+                <i class="material-icons" style="font-size: 40px;">
+                    language
+                </i>
+            </div>
         </div>
-        <div onclick="getClicked();">fedsuakvc</div> -->
     </body>
 </html>

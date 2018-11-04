@@ -1,12 +1,37 @@
 body{
     background-color: #151515;
-    font-size:
+    overflow: hidden;
 }
-#news-stories--holder{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 20px;
-    grid-template-rows: auto;
+img{
+    height: 20vh;
+}
+#name{
+    margin: 15vh auto;
+    font-size: 35px;
+    letter-spacing: 0.5vw;
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat';
+}
+#input{
+    width: 200px;
+    border-radius: 25px;
+}
+.btn-large{
+    margin-top: 10px;
+}
+@media screen and (min-width: 600px){
+    img{
+        height: 35vh;
+    }
+    #name{
+        margin: 15vh auto;
+        font-size: 10vh;
+        letter-spacing: 0.5vw;
+        text-align: center;
+        color: white;
+        font-family: 'Montserrat';
+    }
 }
 
 .landing {
@@ -27,4 +52,8 @@ p {
 .input {
   padding-top: 8vh;
   padding-bottom: 20px;
+}
+
+input {
+  color: #e8e8e8;
 }

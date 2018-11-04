@@ -30,16 +30,24 @@
               <div class="col l5 m12 s12">
                   <div class="search">
                     <div class="input">
-                      <div class="input-field ">
+                      <div class="input-field col s10">
                          <input id="country" type="text">
                          <label for="country">Search by country</label>
                       </div>
-                      <div class="input-field ">
+                      <div class="btn-floating btn-large btn-flat waves-effect waves-light" onclick="redirectCountry();">
+                          <i class="material-icons" style="font-size: 30px;">
+                              search
+                          </i>
+                      </div>
+
+                      <div class="input-field col s10">
                          <input id="keyword" type="text">
                          <label for="keyword">Search by keyword</label>
                       </div>
                       </div>
-                      <a class="waves-effect waves-light btn-large"><i class="material-icons right">map</i>See the world</a>
+                      <div class="waves-effect waves-light btn-large" onclick="window.location = './map.html'">
+                        <i class="material-icons right" >map</i>See a map
+                      </div>
                   </div>
               </div>
           </div>
