@@ -1,10 +1,10 @@
 let data;
 
 function load(){
-    navigator.geolocation.getCurrentPosition(function(position) {
-       getLocation(position.coords.latitude, position.coords.longitude);
-    });
-
+    // navigator.geolocation.getCurrentPosition(function(position) {
+    //    getLocation(position.coords.latitude, position.coords.longitude);
+    // });
+    getLocation(37.8734884, -122.256028);
 }
 function getLocation(lat, long){
     const url = `https://calhacks18.appspot.com/?id=location&lat=${lat}&long=${long}`;    
