@@ -7,7 +7,7 @@ function load(){
 
 }
 function getLocation(lat, long){
-    const url = `localhost:8080/?id=location&lat=${lat}&long=${long}`;    
+    const url = `https://calhacks18.appspot.com/?id=location&lat=${lat}&long=${long}`;    
     console.log(lat, long, url);
 
     fetch(url)
