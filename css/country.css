@@ -7,6 +7,14 @@ h1{
     color: white;
     text-align: center;
 }
+.preloader-wrapper{
+    position: fixed;
+    color: #420DAB;
+    top : 35vh;
+    left: calc(50vw - 15vh );
+    height: 30vh !important;
+    width: 30vh !important;
+}
 #news-stories--holder{
     display: grid;
     grid-template-columns: 1fr;

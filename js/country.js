@@ -1,4 +1,5 @@
 let data;
+let englishOnly = true;
 
 function load(){
     let url = new URL(window.location.href);
@@ -9,41 +10,110 @@ function load(){
 function setupPage(country){
     let template = `
         <h1>Showing results for news articles in ${country}</h1>
+        <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+
+          <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+
+         <div class="spinner-layer spinner-yellow">
+           <div class="circle-clipper left">
+             <div class="circle"></div>
+           </div><div class="gap-patch">
+             <div class="circle"></div>
+           </div><div class="circle-clipper right">
+             <div class="circle"></div>
+           </div>
+         </div>
+
+         <div class="spinner-layer spinner-green">
+           <div class="circle-clipper left">
+             <div class="circle"></div>
+           </div><div class="gap-patch">
+             <div class="circle"></div>
+           </div><div class="circle-clipper right">
+             <div class="circle"></div>
+           </div>
+         </div>
+       </div>
     `;
     document.getElementById('root').insertAdjacentHTML('beforebegin', template);
 }
 function getLocation(country){
-    const url = `https://calhacks18.appspot.com/?id=country&country=${country.replace(/ /g,"_")}`;   
-    // const url = `http://localhost:8080/?id=country&country=${country.replace(/ /g,"_")}`;    
+    const url = `https://calhacks18.appspot.com/?id=country&country=${country.replace(/ /g,"_")}`;
+    // const url = `http://localhost:8080/?id=country&country=${country.replace(/ /g,"_")}`;
     fetch(url)
     .then(function(response){
         return response.json();
     })
     .then(function(response){
+        data = response;
         generateNewsCards(response);
     });
 }
 function generateNewsCards(data){
+    document.getElementsByClassName('preloader-wrapper').item(0).style.display = 'none';
     data['events']['results'].forEach(e => {
         generateCard(e);
     });
 }
 function generateCard({title, summary, images, eventDate}){
-    let cardTemplate = `
-    <div class="card">
-        <div class="card-image">
-            <img src="${images[0]}">
-        </div>
-        <div class="card-content">
-            <div class="card-title">${title[Object.keys(title)[0]]}</div>
-            ${summary[Object.keys(summary)[0]]}
-        </div>
-        <div class="card-action">
-            <a href="#">Date published: ${eventDate}</a>
-        </div>
-    </div>
-    `;
-    if(!(title[Object.keys(title)[0]] == undefined || summary[Object.keys(summary)[0]] == undefined)){
-        document.getElementById('news-stories--holder').insertAdjacentHTML('beforeend' ,cardTemplate);
+
+    if(englishOnly){
+        if(!(title['eng'] == undefined || summary['eng'] == undefined)){
+            let cardTemplate = `
+            <div class="card">
+                <div class="card-image">
+                    <img src="${images[0]}">
+                </div>
+                <div class="card-content">
+                    <div class="card-title">${title['eng']}</div>
+                    ${summary['eng']}
+                </div>
+                <div class="card-action">
+                    <a href="#">Date published: ${eventDate}</a>
+                </div>
+            </div>
+            `;
+            document.getElementById('news-stories--holder').insertAdjacentHTML('beforeend' ,cardTemplate);
+        }
+    }else{
+        if(!(title[Object.keys(title)[0]] == undefined || summary[Object.keys(summary)[0]] == undefined)){
+            let cardTemplate = `
+            <div class="card">
+                <div class="card-image">
+                    <img src="${images[0]}">
+                </div>
+                <div class="card-content">
+                    <div class="card-title">${title[Object.keys(title)[0]]}</div>
+                    ${summary[Object.keys(summary)[0]]}
+                </div>
+                <div class="card-action">
+                    <a href="#">Date published: ${eventDate}</a>
+                </div>
+            </div>
+            `;
+            document.getElementById('news-stories--holder').insertAdjacentHTML('beforeend' ,cardTemplate);
+        }
     }
+}
+function toggleLanguage(){
+    document.getElementById('news-stories--holder').textContent = "";
+    englishOnly = !englishOnly;
+    generateNewsCards(data);
 }
