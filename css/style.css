@@ -1,9 +1,30 @@
 body{
-    /* background-color: #151515; */
+    background-color: #151515;
+    font-size:
 }
 #news-stories--holder{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 20px;
     grid-template-rows: auto;
+}
+
+.landing {
+    width: 80%;
+    color: #e8e8e8;
+    padding-top: 20vh;
+}
+
+h1 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 6em;
+}
+
+p {
+  font-weight: 200;
+}
+
+.input {
+  padding-top: 8vh;
+  padding-bottom: 20px;
 }

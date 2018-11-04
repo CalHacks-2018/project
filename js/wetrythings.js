@@ -41,3 +41,8 @@ function myload(){
           document.getElementById('news-stories--holder').insertAdjacentHTML('beforeend' ,cardTemplate);
       }
   }
+
+  function getClicked(){
+    //console.log("dsuv");
+    window.location="./map.html?id=";
+  }
